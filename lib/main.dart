@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constants/colors.dart';
+import 'package:flutter_application_1/widgets/banner_slider.dart';
+import 'package:flutter_application_1/widgets/product_item.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,22 +11,54 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const MyHomePage());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          backgroundColor: CustomColors.backgroundScreen,
+          body: Center(child: ProductItem()),
+        ),
+      ),
+    );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+class CategoryHorizontalItemList extends StatelessWidget {
+  const CategoryHorizontalItemList({super.key});
 
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Column(
+      children: [
+        Stack(
+          alignment: AlignmentGeometry.center,
+          children: [
+            Container(
+              height: 56,
+              width: 56,
+              decoration: ShapeDecoration(
+                shadows: [
+                  BoxShadow(
+                    color: Colors.red,
+                    blurRadius: 15,
+                    spreadRadius: -10,
+                    offset: Offset(0, 10),
+                  ),
+                ],
+                color: Colors.red,
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(40),
+                ),
+              ),
+            ),
+            Icon(Icons.mouse, color: Colors.white, size: 30),
+          ],
+        ),
+        SizedBox(height: 10),
+        Text("همه", style: TextStyle(fontFamily: 'SB', fontSize: 12)),
+      ],
+    );
   }
 }
