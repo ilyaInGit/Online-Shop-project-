@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(
+                    top: 30,
                     left: 30,
                     right: 30,
                     bottom: 15,
@@ -45,6 +46,57 @@ class MyApp extends StatelessWidget {
                       Spacer(),
                       Text(
                         "پرفروش ها",
+                        style: TextStyle(
+                          fontFamily: 'SM',
+                          color: CustomColors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 216,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 5,
+                    padding: EdgeInsets.only(right: 20),
+                    itemBuilder: ((context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: ProductItem(),
+                      );
+                    }),
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 30,
+                    left: 30,
+                    right: 30,
+                    bottom: 15,
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Image.asset(
+                          "assets/images/icon_left_categroy.png",
+                        ),
+                      ),
+                      Text(
+                        "مشاهده همه",
+                        style: TextStyle(
+                          fontFamily: 'SM',
+                          color: CustomColors.blue,
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        "پر بازدید ترین ها",
                         style: TextStyle(
                           fontFamily: 'SM',
                           color: CustomColors.grey,
