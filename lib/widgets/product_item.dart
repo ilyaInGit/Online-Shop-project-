@@ -30,7 +30,7 @@ class ProductItem extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 8),
           Column(
             children: [
               Padding(
