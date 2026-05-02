@@ -22,8 +22,69 @@ class MyApp extends StatelessWidget {
             slivers: <Widget>[
               SliverToBoxAdapter(
                 child: Padding(
+                  padding: EdgeInsetsGeometry.only(top: 10),
+                  child: Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: BannerSlider(),
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
                   padding: const EdgeInsets.only(
                     top: 30,
+                    left: 30,
+                    right: 30,
+                    bottom: 15,
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Image.asset(
+                          "assets/images/icon_left_categroy.png",
+                        ),
+                      ),
+                      Text(
+                        "مشاهده همه",
+                        style: TextStyle(
+                          fontFamily: 'SM',
+                          color: CustomColors.blue,
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        "دسته بندی",
+                        style: TextStyle(
+                          fontFamily: 'SM',
+                          color: CustomColors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                    reverse: true,
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsetsGeometry.only(left: 20),
+                        child: CategoryHorizontalItemList(),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 10,
                     left: 30,
                     right: 30,
                     bottom: 15,
@@ -59,9 +120,10 @@ class MyApp extends StatelessWidget {
                 child: SizedBox(
                   height: 216,
                   child: ListView.builder(
+                    reverse: true,
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
-                    padding: EdgeInsets.only(right: 20),
+                    padding: EdgeInsets.only(right: 20, left: 20),
                     itemBuilder: ((context, index) {
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
@@ -110,9 +172,10 @@ class MyApp extends StatelessWidget {
                 child: SizedBox(
                   height: 216,
                   child: ListView.builder(
+                    reverse: true,
                     scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    padding: EdgeInsets.only(right: 20),
+                    itemCount: 10,
+                    padding: EdgeInsets.only(right: 20, left: 20),
                     itemBuilder: ((context, index) {
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
@@ -122,6 +185,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
+              SliverToBoxAdapter(child: SizedBox(height: 30)),
             ],
           ),
         ),

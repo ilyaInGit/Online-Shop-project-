@@ -19,7 +19,13 @@ class BannerSlider extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsetsGeometry.only(left: 12, right: 12),
-                child: Container(height: 200, color: Colors.red),
+                child: Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                  ),
+                ),
               );
             },
           ),
